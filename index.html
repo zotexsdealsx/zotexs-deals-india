@@ -1,233 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Zotexs Deals India</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Deals Store</title>
+<style>
+body {font-family: Arial; margin:0; background:#eaeded;}
+header {background:#131921; color:white; padding:15px; display:flex; justify-content:space-between; align-items:center;}
+.logo {font-size:22px; font-weight:bold;}
+.search {width:50%; padding:8px; border-radius:5px; border:none;}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #f3f3f3;
-    }
+.banner {background:#febd69; padding:10px; text-align:center; font-weight:bold;}
 
-    header {
-      background: linear-gradient(90deg, red, orange);
-      color: white;
-      padding: 15px;
-      text-align: center;
-      font-size: 26px;
-      font-weight: bold;
-    }
+.container {display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; padding:20px;}
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
+.card {background:white; padding:15px; border-radius:10px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:0.3s;}
+.card:hover {transform:scale(1.05);}
 
-    .product {
-      background: white;
-      border-radius: 12px;
-      padding: 10px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      position: relative;
-    }
+.card img {width:100%; height:150px; object-fit:contain;}
 
-    .badge {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background: red;
-      color: white;
-      padding: 4px 8px;
-      font-size: 12px;
-      border-radius: 5px;
-    }
+.rating {color:orange; margin:5px 0;}
+.price {color:#b12704; font-size:18px; font-weight:bold;}
 
-    .product img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
+button {background:#ffd814; border:none; padding:10px; width:100%; cursor:pointer; font-weight:bold; border-radius:5px;}
+button:hover {background:#f7ca00;}
 
-    .product h2 {
-      font-size: 16px;
-      margin: 10px 0;
-    }
-
-    .price {
-      color: green;
-      font-weight: bold;
-      margin: 5px 0;
-    }
-
-    .rating {
-      color: gold;
-      margin-bottom: 5px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 8px 15px;
-      background: black;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 8px;
-    }
-
-    .btn:hover {
-      background: red;
-    }
-  </style>
+.footer {background:#131921; color:white; text-align:center; padding:15px; margin-top:20px;}
+</style>
 </head>
-
 <body>
-<p style="text-align:center; font-size:12px; padding:10px;">
-This site contains affiliate links. We may earn a commission when you buy through our links.
-</p>
-  <script>
-document.querySelectorAll('.btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    alert("🔥 Deal opening... Grab it fast!");
-  });
+
+<header>
+  <div class="logo">🛒 MyDeals</div>
+  <input type="text" class="search" placeholder="Search products...">
+</header>
+
+<div class="banner">🔥 Limited Time Deals | Free Delivery Available</div>
+
+<div class="container" id="productContainer"></div>
+
+<div class="footer">© 2026 MyDeals Store | Affiliate Website</div>
+
+<script>
+const products = [
+  {name:"Wireless Headphones", price:"₹799", img:"https://m.media-amazon.com/images/I/61CGHv6kmWL._SX679_.jpg", link:"YOUR_LINK"},
+  {name:"Smart Watch", price:"₹1499", img:"https://m.media-amazon.com/images/I/71Zf9uUp+GL._SX679_.jpg", link:"YOUR_LINK"},
+  {name:"Bluetooth Speaker", price:"₹999", img:"https://m.media-amazon.com/images/I/61u48FEsbCL._SX679_.jpg", link:"YOUR_LINK"}
+];
+
+while(products.length < 50){
+  products.push(...products.slice(0, 50 - products.length));
+}
+
+const container = document.getElementById("productContainer");
+
+products.forEach(p => {
+  container.innerHTML += `
+    <div class="card">
+      <img src="${p.img}">
+      <h3>${p.name}</h3>
+      <div class="rating">⭐⭐⭐⭐☆</div>
+      <div class="price">${p.price}</div>
+      <a href="${p.link}"><button>Add to Cart</button></a>
+    </div>
+  `;
 });
 </script>
-  <header>
-  <img src="https//via.:placeholder.com/120" style="width:120px;"><br>
-  🔥 Zotexs Deals India 🔥
-</heade
-  <p style="color:red;">⚡ Limited stock available!</p>
-    <p style="text-align:center; color:green;">
-👀 37 people are viewing this product right now!
-</p>
-<header>🔥 Zotexs Deals India 🔥</header>
-
-<div class="container">
-
-  <div class="product">
-    <div class="badge">Best Seller</div>
-    <img src="https://m.media-amazon.com/images/I/614Hd3JaGOL._SL1500_.jpg">
-    <h2>Boat Headphones</h2>
-    <div class="rating">⭐⭐⭐⭐☆</div>
-    <div class="price">₹799</div>
-    <a href="https://amzn.to/3PXH2Nn" class="btn" target="_blank">Buy Now</a>
-  </div>
-
-  <div class="product">
-    <div class="badge">Hot Deal</div>
-    <img src="https://m.media-amazon.com/images/I/61LeyQw4qbL._SL1500_.jpg">
-    <h2>Noise Smartwatch</h2>
-    <div class="rating">⭐⭐⭐⭐⭐</div>
-    <div class="price">₹9999</div>
-    <a href="https://amzn.to/4mpkRvD" class="btn" target="_blank">Buy Now</a>
-  </div>
-
-  <div class="product">
-    <div class="badge">Trending</div>
-    <img src="https://m.media-amazon.com/images/I/61Qk3p2fXQL._SL1200_.jpg">
-    <h2>Wireless Earbuds</h2>
-    <div class="rating">⭐⭐⭐⭐☆</div>
-    <div class="price">₹699</div>
-    <a href="https://amzn.to/4vHoXDA" class="btn" target="_blank">Buy Now</a>
-  </div>
-
-  <div class="product">
-    <div class="badge">Top Rated</div>
-    <img src="https://m.media-amazon.com/images/I/81hgjKwsdHL._SL1500_.jpg">
-    <h2>Bluetooth Speaker</h2>
-    <div class="rating">⭐⭐⭐⭐⭐</div>
-    <div class="price">₹5499</div>
-    <a href="https://amzn.to/4tNMr8k" class="btn" target="_blank">Buy Now</a>
-  </div>
-
-  <div class="product">
-    <div class="badge">Best Value</div>
-    <img src="https://m.media-amazon.com/images/I/419OMyMyL-L._SL1100_.jpg">
-    <h2>Power Bank</h2>
-    <div class="rating">⭐⭐⭐⭐☆</div>
-    <div class="price">₹1099</div>
-    <a href="https://amzn.to/41vlWIE" class="btn" target="_blank">Buy Now</a>
-  </div>
-  
-<div class="product">
-  <div class="badge">Best Seller</div>
-  <img src="https://m.media-amazon.com/images/I/51aa6X0QOmL._SX385_.jpg">
-  <h2>EXOTIX</h2>
-  <div class="rating">⭐⭐⭐⭐☆</div>
-  <div class="price">₹949</div>
-  <a href="https://amzn.to/4sx3B91" class="btn" target="_blank">Buy Now</a>
-  
- <div class="product">
-  <div class="badge">Best Seller</div>
-  <img src="https://m.media-amazon.com/images/I/51+txLNg3VL._SY679_.jpg">
-  <h2>THIRD QUADRANT</h2>
-  <div class="rating">⭐⭐⭐⭐☆</div>
-  <div class="price">₹699 </div>
-  <a href="https://amzn.to/4t8Amun" class="btn" target="_blank">Buy Now</a>
-    
-</div class="product">
-  <div class="badge">Best Seller</div>
-  <img src="https://m.media-amazon.com/images/I/61TWEg3pXpL._SY500_.jpg">
-  <h2>Boldfit Sneakers for Man</h2>
-  <div class="rating">⭐⭐⭐⭐☆</div>
-  <div class="price">₹1499</div>
-  <a href="https://amzn.to/3OCiJUE" class="btn" target="_blank">Buy Now</a>
-  
-</div class="product">
-  <div class="badge">Best Seller</div>
-  <img src="https://m.media-amazon.com/images/I/71eBEQBmpUL._SL1500_.jpg">
-  <h2>Power bank</h2>
-  <div class="rating">⭐⭐⭐⭐☆</div>
-  <div class="price">₹999</div>
-  <a href="https://amzn.to/4u4qMsH" class="btn" target="_blank">Buy Now</a>
-  
-</div class="product">
-  <div class="badge">Best Seller</div>
-  <img src="https://m.media-amazon.com/images/I/613B2MK6LeL._SL1500_.jpg">
-  <h2>Power bank super</h2>
-  <div class="rating">⭐⭐⭐⭐☆</div>
-  <div class="price">₹1899</div>
-  <a href="https://amzn.to/4c8UnLp" class="btn" target="_blank">Buy Now</a>
-  
-</div class="product">
-  <div class="badge">Best Seller</div>
-  <img src="https://m.media-amazon.com/images/I/61Qk3p2fXQL._SL1200_.jpg">
-  <h2>pTron Studio Pro </h2>
-  <div class="rating">⭐⭐⭐⭐☆</div>
-  <div class="price">₹699</div>
-  <a href="https://amzn.to/4mrV1Hj" class="btn" target="_blank">Buy Now</a>
-  
-</div class="product">
-  <div class="badge">Best Seller</div>
-  <img src="https://m.media-amazon.com/images/I/61iobvuLOaL._SL1500_.jpg">
-  <h2>Noise Buds N2 Pro Truly</h2>
-  <div class="rating">⭐⭐⭐⭐☆</div>
-  <div class="price">1799₹</div>
-  <a href="https://amzn.to/4ckcblu" class="btn" target="_blank">Buy Now</a>
-  
-</div class="product">
-  <div class="badge">Best Seller</div>
-  <img src="https://m.media-amazon.com/images/I/81Ws1OwXz1L._SL1500_.jpg">
-  <h2>best deal smart tv</h2>
-  <div class="rating">⭐⭐⭐⭐☆</div>
-  <div class="price">₹39999</div>
-  <a href="https://amzn.to/3Q818EA" class="btn" target="_blank">Buy Now</a>
-  
-</div class="product">
-  <div class="badge">Best Seller</div>
-  <img src="https://m.media-amazon.com/images/I/614tE-mOJeL._SL1500_.jpg">
-  <h2>OnePlus Nord 6 | 8GB+256GB</h2>
-  <div class="rating">⭐⭐⭐⭐☆</div>
-  <div class="price">₹38999</div>
-  <a href="https://amzn.to/3Q9g9pE" class="btn" target="_blank">Buy Now</a>
-</div>
-  
-</div>
-
 
 </body>
 </html>
